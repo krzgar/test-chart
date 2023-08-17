@@ -1,0 +1,14 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  labels:
+    app: oracle-db-app
+  name: oracle-db-app
+  namespace: oracle-db-app
+spec:
+  port:
+    targetPort: 8080
+  to:
+    kind: Service
+    name: local-oracle-database-connection-service
+    weight: 100

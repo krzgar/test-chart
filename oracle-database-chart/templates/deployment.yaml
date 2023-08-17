@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: local-oracle-database-connection-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oracle-db-app
+  template:
+    metadata:
+      labels:
+        app: oracle-db-app
+    spec:
+      containers:
+        - name: local-oracle-database-connection
+          image: krzysztofgarbowicz/oracle-db-test:latest
+          ports:
+            - containerPort: 8080
